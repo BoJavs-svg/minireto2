@@ -1,6 +1,7 @@
 import React from "react";
 import Table from "../Components/Table";
 import Carrito from "../Components/Carrito";
+import './App.css';
 
 function Dashboard() {
   return (
