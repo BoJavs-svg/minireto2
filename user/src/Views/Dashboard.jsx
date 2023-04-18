@@ -1,10 +1,19 @@
 import React from "react";
-
+import Table from "../Components/Table";
+import Carrito from "../Components/Carrito";
 
 function Dashboard() {
   return (
     <div className="App">
-      <h1>Dashboard</h1>
+      <div className="left">
+        <h1>Dashboard</h1>
+        <Table/>
+      </div>
+      <div className="right">
+        <h1>Carrito</h1>
+        <Carrito/>
+      </div>
+
     </div>
   );
   
