@@ -1,15 +1,22 @@
 import React, { useEffect, useState } from "react";
-import newCart from "../Components/newCart";
 
 
 function Carrito() {
     const [data, setData] = useState(null);
     useEffect(() => {
-        fetch("/carrito/?",1)
+        fetch("/carrito")
             .then(res => res.json())
             .then((data) => setData(data))
             .catch((err) => console.log(err));
-        }, []);    
+        }, []);
+    if(data.length <= 0){
+        return (
+            <div>
+                <p>Carrito vacio</p>
+            </div>
+        )
+    }
+    else{
     return (
         <>
         {data
@@ -22,9 +29,10 @@ function Carrito() {
                     </div>
                 );
             })
-            : <newCart/>}
+            : "...Loading"}
         </>
     );
+    }
 }
 
 export default Carrito;
