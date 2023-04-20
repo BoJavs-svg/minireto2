@@ -4,19 +4,22 @@ import "../styles/Table.css";
 
 function Table() {
     const [data, setData] = useState(null);
-    const addToCart = (event) => {
-        event.preventDefault();
-        const sushi_id = event.target.value;
-        axios.post(`/addSushi/${sushi_id}`)
-            .then((res) => console.log(res))
-            .catch((err) => console.log(err));
-    }        
     useEffect(() => {
         fetch("/sushi")
             .then(res => res.json())
             .then((data) => setData(data))
             .catch((err) => console.log(err));
         }, []);      
+    //proxy localhost:3001
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        axios.post('/addSushi/' + event.target.getAttribute("sushi_id"))
+        .then(response => {})
+        .catch(error => {
+          console.log(error);
+          // handle errors if needed
+        });
+    };
 
     return (
         <>
@@ -52,7 +55,7 @@ function Table() {
                         </ul>
                         </div>
                     </div>
-                        <button id={dato.sushi_id} onClick={addToCart}>Add to cart</button>
+                      <button type="submit" onClick={handleSubmit} sushi_id={dato.sushi_id}>Agregar</button>
                     </div>
                 );
             })

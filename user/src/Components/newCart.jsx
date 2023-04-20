@@ -30,7 +30,7 @@ const NewCart = () => {
   return (
     <form onSubmit={handleSubmit}>
       <label>
-        Nombre del carrito:
+        Usuario:
         <input type="text" value={nombre} onChange={handleNombreChange} />
       </label>
       <button type="submit" onClick={handleSubmit}>Crear</button>

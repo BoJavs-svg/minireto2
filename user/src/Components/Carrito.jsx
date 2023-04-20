@@ -8,32 +8,22 @@ function Carrito() {
             .then(res => res.json())
             .then((data) => setData(data))
             .catch((err) => console.log(err));
-        }, []);
-    if(data.length <= 0){
+        }, [data]);
         return (
-            <div>
-                <p>Carrito vacio</p>
-            </div>
-        )
+            <>
+            {data
+                ? data.map((dato) => {
+                    return (
+                        <div>
+                            <h3>{dato.nombre} x {dato.cantidad}</h3>
+                        </div>
+                    );
+                })
+                : "...Loading"}
+            </>
+        );
     }
-    else{
-    return (
-        <>
-        {data
-            ? data.map((dato) => {
-                return (
-                    <div>
-                        <ul>
-                            <li>{dato.nombre}</li>
-                        </ul>
-                    </div>
-                );
-            })
-            : "...Loading"}
-        </>
-    );
-    }
-}
+
 
 export default Carrito;
 

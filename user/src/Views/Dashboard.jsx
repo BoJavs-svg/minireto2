@@ -1,12 +1,33 @@
-import React from "react";
+import React ,{useState} from 'react';
 import Table from "../Components/Table";
 import Carrito from "../Components/Carrito";
 import NewCart from "../Components/NewCart";
+import LeftBar from "../Components/LeftBar";
 import "../styles/Dashboard.css";
 
 function Dashboard() {
+  const [isLeftBarVisible, setIsLeftBarVisible] = useState(false);
+
+  const toggleLeftBar = () => {
+    setIsLeftBarVisible(!isLeftBarVisible);
+    const leftBar = document.querySelector('.leftBar');
+    leftBar.style.visibility = isLeftBarVisible ? 'hidden' : 'visible';
+    leftBar.style.width = isLeftBarVisible ? '0%' : '10%';
+    const main = document.querySelector('.main');
+    main.style.width = isLeftBarVisible ? '100%' : '90%';
+
+  };
   return (
     <div className="App">
+      <div className="leftBar">
+        <LeftBar/>
+      </div>
+      <div className="main">
+      <header className="head">
+      <button className="button" onClick={toggleLeftBar}>☰</button>
+            <h1>Suhsi's Sushi</h1>
+            <img src={require("../Assets/pug_stock.png")} alt="Logo" className="logo"/> 
+      </header>
       <div className="top">
           <div className="left">
             <div className="table">
@@ -19,9 +40,9 @@ function Dashboard() {
           </div>
       </div>
       <div className="bottom">
-        <h1>Crear Carrito</h1>
         <NewCart/>
       </div>
+    </div>
     </div>
   );
 }

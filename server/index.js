@@ -16,6 +16,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const fs = require('fs');
 const path = require('path');
 
+const getCred = () => {
+    const filePath = path.join(__dirname, 'credential.json');
+    const file = fs.readFileSync(filePath, 'utf8');
+    return JSON.parse(file);
+}
 app.post('/nuevo_carrito/:nombre', (req, res) => {
     con.query("INSERT INTO CARRITO (nombre) VALUES (?)", [req.params.nombre], (err, rows) => {
         if (err) throw err;
@@ -30,16 +35,14 @@ app.get('/sushi', (req, res) => {
     });
 });
 app.get('/carrito', (req, res) => {
-    fs.readFile('credential.json', (err, data) => {
-        if (err) throw err;
-        const credentials = JSON.parse(data);
+        const credentials = getCred();
         const id = credentials.id;
-        con.query('SELECT s.* FROM CARRITO_SUSHI cs INNER JOIN SUSHI s ON cs.sushi_id = s.sushi_id WHERE cs.carrito_id = ?', [id], (err, rows) => {
+        con.query('SELECT DISTINCT(SUSHI.nombre), COUNT(CARRITO_SUSHI.sushi_id) AS cantidad FROM CARRITO_SUSHI INNER JOIN SUSHI ON CARRITO_SUSHI.sushi_id = SUSHI.sushi_id WHERE CARRITO_SUSHI.carrito_id = ? GROUP BY CARRITO_SUSHI.sushi_id;', [id], (err, rows) => {
             if (err) throw err;
             res.send(rows);
-        });
     });
 });
+
 app.get('/lastCarrito', (req, res) => {
     con.query('SELECT MAX(carrito_id) AS id FROM CARRITO', (err, rows) => {
         if (err) throw err;
@@ -54,21 +57,16 @@ app.get('/lastCarrito', (req, res) => {
         });
 });
 //AddSushi
-app.post('/addSushi/:sushi_id', (req, res) => {
-    fs.readFile('credential.json', (err, data) => {
-        if (err) throw err;
-        const credentials = JSON.parse(data);
-        const id = credentials.id;
-        con.query("INSERT INTO CARRITO_SUSHI (carrito_id, sushi_id) VALUES (?, ?)", [id, req.params.sushi_id], (err, rows) => {
+app.post('/addSushi/:sushi_id', (req, res) => {    
+        credential=getCred();
+        con.query("INSERT INTO CARRITO_SUSHI (carrito_id, sushi_id) VALUES (?, ?)", [credential.id, req.params.sushi_id], (err, rows) => {
             if (err) throw err;
             res.send(rows);
-        });
     });
 });
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
-}
-);
+});
 
 
