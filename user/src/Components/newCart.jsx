@@ -20,7 +20,6 @@ const NewCart = () => {
       console.log("id",data);
       // do something with the response if needed
     })
-      
   };
 
   const handleNombreChange = (event) => {
