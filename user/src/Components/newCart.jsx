@@ -1,28 +1,22 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-
 const NewCart = () => {
   const [nombre, setNombre] = useState('');
-
+  const [submitCount, setSubmitCount] = useState(0);
   const handleSubmit = (event) => {
     event.preventDefault();
     axios.post('/nuevo_carrito/' + nombre)
-    .then(response => {})
-    .catch(error => {
-      console.log(error);
-      // handle errors if needed
-    });
-    //Add the user id 
-    fetch("/lastCarrito")
-    .then(res => res.json())
-    .then((data) => {
-      console.log("id",data);
-      // do something with the response if needed
-    })
-      
-  };
+    .catch(error => {console.log(error);});
+    setSubmitCount(submitCount + 1); 
 
+    axios.get('/lastCarrito')
+    .then((res) => res.data)
+    .then((data) => {
+        window.location.href = "/" + data[0].carrito_id;
+    })
+    .catch((err) => console.log(err));
+  };
   const handleNombreChange = (event) => {
     setNombre(event.target.value);
   };

@@ -8,7 +8,7 @@ const LeftBar = () => {
             <p>LeftBar</p>
             <p>LeftBar</p>
             <p>LeftBar</p>
-            
+            s
         </div>
     )
 }

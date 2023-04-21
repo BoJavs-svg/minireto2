@@ -25,7 +25,7 @@ function Dashboard() {
       <div className="main">
       <header className="head">
       <button className="button" onClick={toggleLeftBar}>☰</button>
-            <h1>Suhsi's Sushi</h1>
+            <h1>Sushi's Sushi</h1>
             <img src={require("../Assets/pug_stock.png")} alt="Logo" className="logo"/> 
       </header>
       <div className="top">
