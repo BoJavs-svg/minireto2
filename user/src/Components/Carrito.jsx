@@ -9,6 +9,7 @@ function Carrito() {
             .then((data) => setData(data))
             .catch((err) => console.log(err));
         }, [data]);
+        
     
     return (
         <>
@@ -17,6 +18,7 @@ function Carrito() {
                 return (
                     <div>
                         <h3>{dato.nombre} x {dato.cantidad}</h3>
+                        <button onClick={() => {} }>Eliminar</button>
                     </div>
                 );
             })
