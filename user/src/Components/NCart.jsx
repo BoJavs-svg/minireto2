@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const NewCart = () => {
+const NCart = () => {
   const [nombre, setNombre] = useState('');
   const [submitCount, setSubmitCount] = useState(0);
   const handleSubmit = (event) => {
@@ -32,4 +32,4 @@ const NewCart = () => {
   );
 };
 
-export default NewCart;
+export default NCart;

@@ -1,7 +1,7 @@
 import React ,{useState} from 'react';
 import Table from "../Components/Table";
 import Carrito from "../Components/Carrito";
-import NewCart from "../Components/NewCart";
+import NCart from "../Components/NCart";
 import LeftBar from "../Components/LeftBar";
 import "../styles/Dashboard.css";
 
@@ -40,7 +40,7 @@ function Dashboard() {
           </div>
       </div>
       <div className="bottom">
-        <NewCart/>
+        <NCart/>
       </div>
     </div>
     </div>
