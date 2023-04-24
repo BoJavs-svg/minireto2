@@ -10,8 +10,8 @@ function Table() {
             .then(res => res.json())
             .then((data) => setData(data))
             .catch((err) => console.log(err));
-        }, []);      
-    //proxy localhost:3001
+        }, []);
+        
     const handleSubmit = (event) => {
         event.preventDefault();
         axios.post('/addSushi/' + event.target.getAttribute("sushi_id")+ "/" + path)
