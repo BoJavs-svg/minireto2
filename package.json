@@ -1,0 +1,26 @@
+{
+  "name": "minireto2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "deploy": "cd user && npm run build && cd .. && git add . && git commit -m \"deploy\" && vercel"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BoJavs-svg/minireto2"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BoJavs-svg/minireto2/issues"
+  },
+  "homepage": "https://github.com/BoJavs-svg/minireto2#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mysql2": "^3.2.3"
+  }
+}
