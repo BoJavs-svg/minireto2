@@ -23,12 +23,11 @@ const NewCart = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h1>Crear Carrito</h1>
-      {/* <label>
+      <label>
         Usuario:
         <input type="text" value={nombre} onChange={handleNombreChange} />
       </label>
-      <button type="submit" onClick={handleSubmit}>Crear</button> */}
+      <button type="submit" onClick={handleSubmit}>Crear</button>
     </form>
   );
 };
