@@ -7,16 +7,14 @@ function Table() {
     const path = window.location.pathname;
     useEffect(() => {
         axios.get('/sushi')
-        .then((res) => res.data)
+        .then((res) => console.log(res.data))
         .then((data) => setData(data))
-        .then((data)=> console.log(data))
         .catch((err) => console.log(err));
     }, []);
 
     const handleSubmit = (event) => {
         event.preventDefault();
         axios.post('/addSushi/' + event.target.getAttribute("sushi_id")+ "/" + path)
-        .then(response => {})
         .catch(error => {
           console.log(error);
 
@@ -25,8 +23,7 @@ function Table() {
 
     return (
         <>
-        {data
-            ? data.map((dato) => {
+        {data ? data.map((dato) => {
                 return (
                     <div>
 
