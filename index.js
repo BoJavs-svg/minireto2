@@ -8,8 +8,6 @@ const mysql = require('mysql2')
 const DB=process.env.DATABASE_URL
 const con= mysql.createConnection(DB)
 
-const PORT = 3001;
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
