@@ -7,11 +7,11 @@ function Table() {
     const path = window.location.pathname;
     useEffect(() => {
         fetch("/sushi")
-            .then(res => res.json())
+            .then(res => console.log(res))
             .then((data) => setData(data))
             .catch((err) => console.log(err));
         }, []);
-        
+
     const handleSubmit = (event) => {
         event.preventDefault();
         axios.post('/addSushi/' + event.target.getAttribute("sushi_id")+ "/" + path)
