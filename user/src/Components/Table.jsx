@@ -9,6 +9,7 @@ function Table() {
         axios.get('/sushi')
         .then((res) => res.data)
         .then((data) => setData(data))
+        .then((data)=> console.log(data))
         .catch((err) => console.log(err));
     }, []);
 
