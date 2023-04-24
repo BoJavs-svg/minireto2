@@ -3,10 +3,17 @@ const app = express();
 
 const bodyParser = require('body-parser');
 
-// require('dotenv').config()
-const mysql = require('mysql2')
-const DB=DATABASE_URL
-const con= mysql.createConnection(DB)
+require("dotenv").config();
+const mysql = require("mysql2");
+
+const DB = process.env.DATABASE_URL;
+const connection = mysql.createConnection(DB);
+connection.connect(function (err) {
+    if (err) throw err;
+    console.log("Connected!");
+  });
+
+const PORT = process.env.PORT || 3001;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
