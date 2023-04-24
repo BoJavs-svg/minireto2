@@ -5,8 +5,8 @@ const bodyParser = require('body-parser');
 
 const mysql = require("mysql2");
 const DB = process.env.DATABASE_URL;
-const connection = mysql.createConnection(DB);
-connection.connect(function (err) {
+const con = mysql.createConnection(DB);
+con.connect(function (err) {
     if (err) throw err;
     console.log("Connected!");
   });
