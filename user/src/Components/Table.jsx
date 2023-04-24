@@ -7,7 +7,7 @@ function Table() {
     const path = window.location.pathname;
     useEffect(() => {
         axios.get('/sushi')
-        .then((res) => console.log(res.data))
+        .then((res) => console.log(res))
         .then((data) => setData(data))
         .catch((err) => console.log(err));
     }, []);
