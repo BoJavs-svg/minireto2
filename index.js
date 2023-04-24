@@ -80,7 +80,6 @@ app.delete('/deleteSushi/:carrito_id/:sushi_id', (req, res) => {
     });
 });
 
-
 app.use(express.static(path.resolve("minireto2/build")));
 
 // Todas las peticiones GET que no manejamos ahora regresarán nuestra React App
