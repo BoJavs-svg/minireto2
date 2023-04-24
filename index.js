@@ -80,9 +80,6 @@ app.delete('/deleteSushi/:carrito_id/:sushi_id', (req, res) => {
     });
 });
 
-app.listen(PORT, () => {
-    console.log(`Server listening on ${PORT}`);
-});
 
 app.use(express.static(path.resolve("minireto2/build")));
 
