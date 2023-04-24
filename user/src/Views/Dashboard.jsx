@@ -1,7 +1,7 @@
 import React ,{useState} from 'react';
+import NewCart from "../Components/NewCart";
 import Table from "../Components/Table";
 import Carrito from "../Components/Carrito";
-import NewCart from "../Components/NewCart";
 import LeftBar from "../Components/LeftBar";
 import "../styles/Dashboard.css";
 
