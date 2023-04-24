@@ -85,4 +85,9 @@ app.listen(PORT, () => {
     console.log(`Server listening on ${PORT}`);
 });
 
-module.exports = app;
+app.use(express.static(path.resolve("minireto2/build")));
+// Todas las peticiones GET que no manejamos ahora regresarán nuestra React App
+// Agrega esto antes del “app.listen”
+app.get("*", (req, res) => {
+    res.sendFile(path.resolve("minireto2/build", "index.html"));
+});
