@@ -3,9 +3,7 @@ const app = express();
 
 const bodyParser = require('body-parser');
 
-require("dotenv").config();
 const mysql = require("mysql2");
-
 const DB = process.env.DATABASE_URL;
 const connection = mysql.createConnection(DB);
 connection.connect(function (err) {
