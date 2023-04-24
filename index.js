@@ -93,3 +93,5 @@ app.use(express.static(path.resolve("minireto2/build")));
 app.get("*", (req, res) => {
     res.sendFile(path.resolve("minireto2/build", "index.html"));
 });
+
+module.exports = app;
