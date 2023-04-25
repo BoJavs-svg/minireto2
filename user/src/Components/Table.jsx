@@ -9,7 +9,7 @@ function Table() {
         fetch("/sushi")
             .then(res => res.data)
             .then((data) => setData(data))
-            .catch((err) => console.log(err));
+            .catch((err) => console.log("err"));
         }, []);
     const handleSubmit = (event) => {
         event.preventDefault();
