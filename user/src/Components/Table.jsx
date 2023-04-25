@@ -6,12 +6,7 @@ function Table() {
     const [data, setData] = useState(null);
     const path = window.location.pathname;
     useEffect(() => {
-        fetch("/sushi")
-            .then(res => res.json())
-            .then((data) => setData(data))
-            .catch((err) => console.log(err));
-        }, [data]);
-        
+        fetch("/sushi").then(res => res.json()).then((data) => setData(data)).catch((err) => console.log(err));}, [data]);
         const handleSubmit = (event) => {
         event.preventDefault();
         axios.post('/addSushi/' + event.target.getAttribute("sushi_id")+ "/" + path)
