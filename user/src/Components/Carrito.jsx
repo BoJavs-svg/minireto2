@@ -13,7 +13,7 @@ function Carrito() {
         console.log("Delete sushi_id: " + sushi_id + " carrito_id: " + carrito_id);
         fetch ("/deleteSushi/" + sushi_id + "/" + carrito_id, {
             method: "DELETE",
-        }).then((res) => res.json())
+        }).then((res) => console.log(res))
         .then((data) => setData(data))
         .catch((err) => console.log(err)); 
     };    
