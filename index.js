@@ -20,6 +20,7 @@ const path = require('path');
 
 //"/sushi"
 app.get('/sushi', (req, res) => {
+    console.log("GET /sushi");
     con.query('SELECT * FROM SUSHI', (err, rows) => {
         if (err) throw err;
         res.send(rows);
