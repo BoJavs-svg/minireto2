@@ -9,7 +9,7 @@ const NCart = () => {
     axios.post('/nuevo_carrito/' + nombre)
     .catch(error => {console.log(error);});
     setSubmitCount(submitCount + 1); 
-
+    setTimeout(() => {}, 1000);
     axios.get('/lastCarrito')
     .then((res) => res.data)
     .then((data) => {
