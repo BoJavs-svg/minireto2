@@ -13,8 +13,7 @@ function Carrito() {
     
     return (
         <>
-        {data
-            ? data.map((dato) => {
+        {data ? data.map((dato) => {
                 return (
                     <div>
                         <h3>{dato.nombre} x {dato.cantidad}</h3>
