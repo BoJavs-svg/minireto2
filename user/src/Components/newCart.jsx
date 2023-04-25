@@ -21,7 +21,6 @@ const NewCart = () => {
       // do something with the response if needed
     })
   };
-
   const handleNombreChange = (event) => {
     setNombre(event.target.value);
   };
