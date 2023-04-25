@@ -10,7 +10,7 @@ function Table() {
             .then(res => res.json())
             .then((data) => setData(data))
             .catch((err) => console.log(err));
-        }, [data]);
+        }, []);
     
 
     const handleSubmit = (event) => {
