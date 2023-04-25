@@ -10,10 +10,9 @@ function Carrito() {
             .catch((err) => console.log(err));
         }, [data]);
     const deleteCarrito = (sushi_id, carrito_id) => {
-        console.log("Delete sushi_id: " + sushi_id + " carrito_id: " + carrito_id);
         fetch ("/deleteSushi/" + carrito_id + "/" + sushi_id, {
             method: "DELETE",
-        }).then((res) => console.log(res))
+        }).then((res) => res.json())
         .then((data) => setData(data))
         .catch((err) => console.log(err)); 
     };    
