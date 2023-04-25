@@ -11,7 +11,8 @@ function Table() {
             .then((data) => setData(data))
             .catch((err) => console.log(err));
         }, [data]);
-    const handleSubmit = (event) => {
+
+        const handleSubmit = (event) => {
         event.preventDefault();
         axios.post('/addSushi/' + event.target.getAttribute("sushi_id")+ "/" + path)
         .catch(error => {
@@ -25,7 +26,6 @@ function Table() {
         {data ? data.map((dato) => {
                 return (
                     <div>
-
                     <h1>{dato.nombre}</h1>
                     <div className="container">
                         <div className="column">
