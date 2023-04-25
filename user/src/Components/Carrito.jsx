@@ -11,7 +11,7 @@ function Carrito() {
         }, [data]);
     const deleteCarrito = (sushi_id, carrito_id) => {
         console.log("Delete sushi_id: " + sushi_id + " carrito_id: " + carrito_id);
-        fetch ("/deleteSushi/" + sushi_id + "/" + carrito_id, {
+        fetch ("/deleteSushi/" + carrito_id + "/" + sushi_id, {
             method: "DELETE",
         }).then((res) => console.log(res))
         .then((data) => setData(data))
