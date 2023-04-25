@@ -7,7 +7,7 @@ function Table() {
     const path = window.location.pathname;
     useEffect(() => {
         fetch("/sushi")
-            .then(res => res.data.data)
+            .then(res => res.data)
             .then((data) => setData(data))
             .catch((err) => console.log(err));
         }, [data]);
