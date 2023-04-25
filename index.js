@@ -83,13 +83,13 @@ app.delete('/deleteSushi/:carrito_id/:sushi_id', (req, res) => {
     });
 });
 
+app.listen(PORT, () => {
+    console.log(`Server listening on ${PORT}`); 
+});
 app.use(express.static(path.resolve("user/build")));
-
 // Todas las peticiones GET que no manejamos ahora regresarán nuestra React App
 // Agrega esto antes del “app.listen”
-
 app.get("*", (req, res) => {
     res.sendFile(path.resolve("user/build", "index.html"));
 });
-
 module.exports = app;
