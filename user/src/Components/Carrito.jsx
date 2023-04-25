@@ -10,12 +10,13 @@ function Carrito() {
             .catch((err) => console.log(err));
         }, [data]);
     const deleteCarrito = (sushi_id, carrito_id) => {
-        fetch("/deleteSushi/" + carrito_id + "/" + sushi_id, {method: "DELETE",})
-        .then((res) => res.json())
+        console.log("Delete sushi_id: " + sushi_id + " carrito_id: " + carrito_id);
+        fetch ("/deleteSushi/" + sushi_id + "/" + carrito_id, {
+            method: "DELETE",
+        }).then((res) => res.json())
         .then((data) => setData(data))
-        .catch((err) => console.log(err));
+        .catch((err) => console.log(err)); 
     };    
-    
     return (
         <>
         {data ? data.map((dato) => {
