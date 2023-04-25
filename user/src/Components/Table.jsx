@@ -6,11 +6,12 @@ function Table() {
     const [data, setData] = useState(null);
     const path = window.location.pathname;
     useEffect(() => {
-        axios.get('/sushi')
-        .then((res) => console.log(res))
-        .then((data) => setData(data))
-        .catch((err) => console.log(err));
-    }, []);
+        fetch("/sushi" + path)
+            .then(res => res.json())
+            .then((data) => setData(data))
+            .catch((err) => console.log(err));
+        }, [data]);
+    
 
     const handleSubmit = (event) => {
         event.preventDefault();
