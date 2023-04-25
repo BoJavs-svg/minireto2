@@ -6,7 +6,7 @@ function Table() {
     const [data, setData] = useState(null);
     const path = window.location.pathname;
     useEffect(() => {
-        fetch("/sushi" + path)
+        fetch("/sushi")
             .then(res => res.json())
             .then((data) => setData(data))
             .catch((err) => console.log(err));
