@@ -9,15 +9,22 @@ function Carrito() {
             .then((data) => setData(data))
             .catch((err) => console.log(err));
         }, [data]);
-        
+    const deleteCarrito = (sushi_id, carrito_id) => {
+        fetch("/deleteSushi/" + carrito_id + "/" + sushi_id, {
+            method: "DELETE",
+        })
+        .then((res) => res.json())
+        .then((data) => setData(data))
+        .catch((err) => console.log(err));
+    };    
     
     return (
         <>
         {data ? data.map((dato) => {
                 return (
                     <div>
-                        <h3>{dato.nombre} x {dato.cantidad}</h3>
-                        <button onClick={() => {} }>Eliminar</button>
+                        <h3>{dato.nombre}</h3>
+                        <button onClick={() => {deleteCarrito(dato.sushi_id, dato.carrito_id)}}>Eliminar</button>
                     </div>
                 );
             })
