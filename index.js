@@ -56,7 +56,7 @@ app.post('/nuevo_carrito/:nombre', (req, res) => {
 });
 
 app.get('/carrito/:carrito_id', (req, res) => {
-    con.query('SELECT * FROM CARRITO_SUSHI INNER JOIN SUSHI ON CARRITO_SUSHI.sushi_id = SUSHI.sushi_id WHERE CARRITO_SUSHI.carrito_id = ? GROUP BY CARRITO_SUSHI.sushi_id;', [req.params.carrito_id], (err, rows) => {
+    con.query('SELECT * FROM CARRITO_SUSHI INNER JOIN SUSHI ON CARRITO_SUSHI.sushi_id = SUSHI.sushi_id WHERE CARRITO_SUSHI.carrito_id = ?;', [req.params.carrito_id], (err, rows) => {
         if (err) throw err;
         res.send(rows);
     });
