@@ -9,8 +9,8 @@ function Carrito() {
             .then((data) => setData(data))
             .catch((err) => console.log(err));
         }, [data]);
-    const deleteCarrito = (sushi_id, carrito_id) => {
-        fetch ("/deleteSushi/" + carrito_id + "/" + sushi_id, {
+    const deleteCarrito = (carrito_sushi_id)
+        fetch ("/deleteSushi/" + carrito_sushi_id, {
             method: "DELETE",
         }).then((res) => console.log(res))
         .catch((err) => console.log(err));
@@ -21,7 +21,7 @@ function Carrito() {
                 return (
                     <div>
                         <h3>{dato.nombre}</h3>
-                        <button onClick={() => {deleteCarrito(dato.sushi_id, dato.carrito_id)}}>Eliminar</button>
+                        <button onClick={() => {deleteCarrito(dato.carrito_sushi_id)}}>Eliminar</button>
                     </div>
                 );
             })

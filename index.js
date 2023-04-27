@@ -76,8 +76,8 @@ app.post('/addSushi/:sushi_id/:carrito_id', (req, res) => {
     });
 });
 
-app.delete('/deleteSushi/:carrito_id/:sushi_id', (req, res) => {
-    con.query("DELETE FROM CARRITO_SUSHI WHERE carrito_id = ? AND sushi_id = ?", [req.params.carrito_id, req.params.sushi_id], (err, rows) => {
+app.delete('/deleteSushi/:cSushi_id', (req, res) => {
+    con.query("DELETE FROM CARRITO_SUSHI WHERE carrito_sushi_id = ?", [req.params.cSushi_id], (err, rows) => { 
         if (err) throw err;
         res.send(rows);
     });
