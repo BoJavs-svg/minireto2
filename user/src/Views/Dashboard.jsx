@@ -4,6 +4,7 @@ import Carrito from "../Components/Carrito";
 import NCart from "../Components/NCart";
 import LeftBar from "../Components/LeftBar";
 import "../styles/Dashboard.css";
+import NSushi from "../Components/NSushi";
 
 function Dashboard() {
   const [isLeftBarVisible, setIsLeftBarVisible] = useState(false);
@@ -32,6 +33,9 @@ function Dashboard() {
           <div className="left">
             <div className="table">
               <Table/>
+            <div className="nSushi">
+              <NSushi/>
+            </div>
             </div>
           </div>  
           <div className="right">
