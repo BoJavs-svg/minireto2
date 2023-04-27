@@ -72,6 +72,7 @@ app.get('/lastCarrito', (req, res) => {
 app.post('/addSushi/:sushi_id/:carrito_id', (req, res) => {    
     con.query("INSERT INTO CARRITO_SUSHI (carrito_id, sushi_id) VALUES (?, ?)", [req.params.carrito_id, req.params.sushi_id], (err, rows) => {
         if (err) throw err;
+        console.log("INSERTED SUSHI");
         res.send(rows);
     });
 });

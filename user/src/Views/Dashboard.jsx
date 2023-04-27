@@ -26,6 +26,7 @@ function Dashboard() {
       <header className="head">
       <button className="button" onClick={toggleLeftBar}>☰</button>
             <h1>Sushi's Sushi</h1>
+            <NCart/>
             <img src={require("../Assets/sushiLogo.png")} alt="Logo" className="logo"/> 
       </header>
       <div className="top">
@@ -40,7 +41,6 @@ function Dashboard() {
           </div>
       </div>
       <div className="bottom">
-        <NCart/>
       </div>
     </div>
     </div>

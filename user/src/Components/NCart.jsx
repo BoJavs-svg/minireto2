@@ -24,7 +24,7 @@ const NCart = () => {
   return (
     <form onSubmit={handleSubmit}>
       <label>
-        Usuario:
+          Usuario: 
         <input type="text" value={nombre} onChange={handleNombreChange} />
       </label>
       <button type="submit" onClick={handleSubmit}>Crear</button>
