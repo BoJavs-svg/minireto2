@@ -9,12 +9,18 @@ function Carrito() {
             .then((data) => setData(data))
             .catch((err) => console.log(err));
         }, [data]);
+        // app.delete('/deleteSushi/:cSushi_id', (req, res) => {
+        //     con.query("DELETE FROM CARRITO_SUSHI WHERE carrito_sushi_id = ?", [req.params.cSushi_id], (err, rows) => { 
+        //         if (err) throw err;
+        //         res.send(rows);
+        //     });
+        // });
     const deleteCarrito = (carrito_sushi_id) => {
-        fetch ("/deleteSushi/" + carrito_sushi_id, 
-        ).then((res)=> console.log(res))
-        .catch((err) => console.log(err));
-    };  
-    return (
+        fetch("/deleteSushi/" + carrito_sushi_id, {
+            method: "DELETE",
+        }).catch((err) => console.log(err));
+    };
+        return (
         <>
         {data ? data.map((dato) => {
                 return (
