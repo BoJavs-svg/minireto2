@@ -23,12 +23,20 @@ function Carrito() {
         return (
         <>
         {data ? data.map((dato) => {
+            if(data.length == 0){
+                return (
+                    <div>
+                        <h3>Carrito vacio</h3>
+                    </div>
+                );
+            }else{
                 return (
                     <div>
                         <h3>{dato.nombre}</h3>
                         <button onClick={() => {deleteCarrito(dato.carrito_sushi_id)}}>Eliminar</button>
                     </div>
                 );
+                }
             }) : "No hay carrito"}
         </>
     );
