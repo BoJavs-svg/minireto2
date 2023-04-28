@@ -2,7 +2,6 @@ import React ,{useState} from 'react';
 import Table from "../Components/Table";
 import Carrito from "../Components/Carrito";
 import NCart from "../Components/NCart";
-import LeftBar from "../Components/LeftBar";
 import "../styles/Dashboard.css";
 import NSushi from "../Components/NSushi";
 
