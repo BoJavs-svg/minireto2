@@ -54,7 +54,7 @@ app.delete('/sushi/:sushi_id', (req, res) => {
 app.post('/nuevo_carrito/:nombre', (req, res) => {
     con.query("INSERT INTO CARRITO (nombre) VALUES (?)", [req.params.nombre], (err, rows) => {
         if (err) throw err;
-        res.send(rows.insertId);
+        res.send(rows.insertId.toString());
     });
 });
 app.get('/carrito/:carrito_id', (req, res) => {
