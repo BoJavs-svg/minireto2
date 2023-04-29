@@ -7,8 +7,8 @@ const NCart = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     axios.post('/nuevo_carrito/' + nombre)
-    .then((res) => {console.log(res);})
-    .then((data) => {window.location.href = "/"})
+    .then((res) => {return res.data})
+    .then((data) => {window.location.href = "/"+data})
     .catch(error => {console.log(error);});
     setSubmitCount(submitCount + 1); 
   };
