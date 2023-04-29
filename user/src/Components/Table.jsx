@@ -7,15 +7,23 @@ function Table() {
     const path = window.location.pathname;
     useEffect(() => {
         fetch("/sushi").then(res => res.json()).then((data) => setData(data)).catch((err) => console.log(err));}, [data]);
-        const handleSubmit = (event) => {
+    const handleSubmit = (event) => {
         event.preventDefault();
         axios.post('/addSushi/' + event.target.getAttribute("sushi_id")+ "/" + path)
-        .catch(error => {
-          console.log(error);
-
-        });
-    };
-
+            .catch(error => {
+            console.log(error);});
+        };
+    // app.delete('/sushi/:sushi_id', (req, res) => {
+    //     con.query("DELETE FROM SUSHI WHERE sushi_id = ?", [req.params.sushi_id], (err, rows) => {
+    //         if (err) throw err;
+    //         res.send(rows);
+    //     });
+    // });
+    const handleDelete = (event) => {
+        event.preventDefault();
+        axios.delete('/sushi/' + event.target.getAttribute("sushi_id"))
+            .catch(error => {console.log(error);});
+        };
     return (
         <>
         {data ? data.map((dato) => {
@@ -41,7 +49,12 @@ function Table() {
                         {/* </ul> */}
                         </div>
                     </div>
+                    <div style={{display: "flex",justifyContent: "space-around"}}>
                       <button type="submit" onClick={handleSubmit} sushi_id={dato.sushi_id}>Agregar</button>
+                      <button type="submit" onClick={handleDelete} sushi_id={dato.sushi_id}>
+                        Eliminar
+                      </button>
+                    </div>
                     </div>
                 );
             })

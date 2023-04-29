@@ -1,11 +1,11 @@
-@font-face {
+/* @font-face {
   font-family: satoshiregular;
   src: url(../../public/Satoshi-Regular.ttf);
 } 
 @font-face {
   font-family: satoshibold;
   src: url(../../public/Satoshi-Bold.ttf);
-}
+} */
 .App {
   display: flex;
   height: 100vh;

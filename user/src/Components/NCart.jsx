@@ -7,15 +7,10 @@ const NCart = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     axios.post('/nuevo_carrito/' + nombre)
+    .then((res) => {console.log(res);})
+    .then((data) => {window.location.href = "/"})
     .catch(error => {console.log(error);});
     setSubmitCount(submitCount + 1); 
-    setTimeout(() => {}, 1000);
-    axios.get('/lastCarrito')
-    .then((res) => res.data)
-    .then((data) => {
-        window.location.href = "/" + data[0].carrito_id;
-    })
-    .catch((err) => console.log(err));
   };
   const handleNombreChange = (event) => {
     setNombre(event.target.value);
