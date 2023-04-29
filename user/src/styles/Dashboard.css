@@ -1,8 +1,18 @@
+@font-face {
+  font-family: satoshiregular;
+  src: url(../../public/Satoshi-Regular.ttf);
+} 
+@font-face {
+  font-family: satoshibold;
+  src: url(../../public/Satoshi-Bold.ttf);
+}
 .App {
   display: flex;
   height: 100vh;
   width: 100vw;
   background-color: black;
+  font-family: satoshiregular;
+  overflow: hidden;
 }
 .leftBar{
     display: flex;
@@ -23,17 +33,29 @@
     align-items: center;
     width: 100%;
     height: 100%;
-    background-color: #e9b78a;
+    background-color: #fad3a1;
     font-size: 1vw;
 }
 .head{
     display: flex;
+    font-family: satoshibold;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
+    width: 99%;
     height: 10%;
-    background-color: #e9b78a;
+    background-color: #fad3a1;
+    border: 8px solid #604a34;
+}
+.head h1{
+    font-size: 2vw;
+    color: #604a34;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+#cyberpunk {
+  color: #FFF;
+  text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #49ff18, 0 0 30px #49FF18, 0 0 40px #49FF18, 0 0 55px #49FF18, 0 0 75px #49ff18
 }
 /* Buttons in header */
 .button{
@@ -43,14 +65,14 @@
     align-items: center;
     width: 10%;
     height: 100%;
-    background-color: #e9b78a;
+    background-color: #fad3a1;
     font-size: 1vw;
 }
 .logo{
     width: 10%;
     height: 100%;
     object-fit: contain;
-    background-color: #e9b78a;
+    background-color: #fad3a1;
     color:black;
 }
 .top {
@@ -60,7 +82,7 @@
   align-items: center;
   width: 100%;
   height: 80%;
-  background-color: #e9b78a;
+  background-color: #fad3a1;
 }
 .left {
   display: flex;
@@ -70,8 +92,12 @@
   align-items: center;
   width: 50%;
   height: 100%;
-  background-color: #10b8c2;
+  background-color: #AD8F6C;
   font-size: 1vw;
+}
+.left::-webkit-scrollbar{
+    width: 0px;
+    background: transparent;
 }
 .table{
     width: 100%;
@@ -85,7 +111,7 @@
   align-items: center;
   width: 50%;
   height: 100%;
-  background-color: yellow;
+  background-color: #FBE4DB;
   font-size: 1vw;
 
 }
@@ -96,7 +122,15 @@
     align-items: center;    
     width: 100%;
     height: 10%;
-    background-color: #f36f21;
+    background-color: #604A34;
     font-size: 1vw;
     padding-right: 50px;
+    color: #FBE4DB; 
+}
+.myButton {
+  color: rgb(255, 255, 255); font-size: 16px; line-height: 16px; padding: 6px; border-radius: 10px; font-family: Georgia, serif; font-weight: normal; text-decoration: none; font-style: normal; font-variant: normal; text-transform: none; background-image: linear-gradient(to right, rgb(28, 110, 164) 0%, rgb(35, 136, 203) 50%, rgb(20, 78, 117) 100%); box-shadow: rgb(0, 0, 0) 5px 5px 15px 5px; border: 2px solid rgb(28, 110, 164); display: inline-block;}
+  .myButton:hover {
+  background: #1C6EA4; }
+  .myButton:active {
+  background: #144E75; 
 }
