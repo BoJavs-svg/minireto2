@@ -1,0 +1,257 @@
+openapi: 3.0.3
+info:
+  title: Sushi's Sushi API
+  description: "The API is designed to handle and manage all aspects of an online sushi ordering system. Users will be able to create and customize their orders, add items to their cart, and manage the checkout process through the API's endpoints. Additionally, the API will provide tools for managing menu items, such as creating, updating, and deleting items as needed. Users will be able to access the API through the online sushi ordering platform, allowing for seamless integration and a streamlined user experience. Overall, the API's purpose is to facilitate the online ordering process and provide a user-friendly interface for customers to order and personalize their sushi selections."
+  version: 1.0.0
+servers:
+  - url: https://test-ten-nu-72.vercel.app/
+paths:
+  /sushi:
+    get:
+      tags:
+        - sushi
+      summary: Get list of sushi
+      operationId: getSushi
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Sushi'
+  /sushi/{nombre}:
+    post:
+      summary: Add a new sushi
+      tags:
+        - sushi
+      parameters:
+        - name: nombre
+          in: path
+          description: The name of the new sushi
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: sushi
+          description: The sushi to create
+          required: true
+          schema:
+            $ref: '#/components/schemas/Sushi'
+      responses:
+        '200':
+          description: OK
+  /sushi/{sushi_id}:
+    get:
+      summary: Get a sushi by ID
+      tags:
+        - sushi
+      parameters:
+        - name: sushi_id
+          in: path
+          description: The ID of the sushi to retrieve
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Sushi'
+        '404':
+          description: Not Found
+  /sushi/{sushi_id}  .:
+    put:
+      summary: Update a sushi by ID
+      tags:
+        - sushi
+      parameters:
+        - name: sushi_id
+          in: path
+          description: The ID of the sushi to update
+          required: true
+          schema:
+            type: integer
+        - in: query
+          name: body
+          description: The new sushi object data
+          required: true
+          schema:
+            $ref: '#/components/schemas/Sushi'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Sushi'
+        '404':
+          description: Not Found
+  /sushi/{sushi_id}    .:
+    delete:
+      summary: Delete a sushi by ID
+      tags:
+        - sushi
+      parameters:
+        - name: sushi_id
+          in: path
+          description: The ID of the sushi to update
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: Not Found
+  
+  /nuevo_carrito/{nombre}:
+    post:
+      tags:
+        - carrito
+      summary: Create a new cart for the user
+      operationId: createCart
+      parameters:
+        - in: path
+          name: nombre
+          description: The name of the cart owner
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: Request body for creating a new cart
+        required: false
+        content:
+          application/json:
+              schema:
+                $ref: '#/components/schemas/Cart'
+      responses:
+        '200':
+          description: A new cart was created successfully
+        '400':
+          description: Bad request, missing or invalid parameters
+  /carrito/{carrito_id}:
+    get:
+      summary: Get all sushi in a cart
+      tags:
+        - carrito
+      parameters:
+        - in: path
+          name: carrito_id
+          description: ID of the cart to get sushi from
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successfully retrieved sushi from cart
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Sushi'
+        '404':
+          description: Cart not found
+  /addSushi/{sushi_id}/{carrito_id}:
+    post:
+      summary: Add a sushi item to a specific cart.
+      tags:
+        - carrito
+      parameters:
+        - in: path
+          name: sushi_id
+          description: ID of the sushi item to add.
+          required: true
+          schema:
+            type: integer
+        - in: path
+          name: carrito_id
+          description: ID of the cart to add the sushi item to.
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response.
+        '400':
+          description: Invalid input parameter.
+  /deleteSushi/{sushi_id}:
+    delete:
+      tags:
+        - carrito
+      summary: Delete sushi from a cart
+      parameters:
+        - in: path
+          name: sushi_id
+          description: ID of the sushi item in the cart
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successfully deleted the sushi item from the cart
+        '404':
+          description: The specified sushi item could not be found in the cart
+components:
+  schemas:
+    Sushi:
+      type: object
+      properties:
+        sushi_id:
+          type: integer
+          format: int32
+          description: The unique identifier of a sushi
+        nombre:
+          type: string
+          description: The name of the sushi
+        arroz:
+          type: boolean
+          description: Indicates whether the sushi contains rice or not
+        alga_nori:
+          type: boolean
+          description: Indicates whether the sushi contains nori or not
+        kombu:
+          type: boolean
+          description: Indicates whether the sushi contains kombu or not
+        salmon:
+          type: boolean
+          description: Indicates whether the sushi contains salmon or not
+        atun:
+          type: boolean
+          description: Indicates whether the sushi contains tuna or not
+        aguacate:
+          type: boolean
+          description: Indicates whether the sushi contains avocado or not
+        pepino:
+          type: boolean
+          description: Indicates whether the sushi contains cucumber or not
+        wasabi:
+          type: boolean
+          description: Indicates whether the sushi contains wasabi or not
+      required:
+        - nombre
+    Cart:
+      type: object
+      required:
+        - carrito_id
+        - sushi_id
+        - carrito_sushi_id
+      properties:
+        carrito_id:
+          type: integer
+          format: int32
+        sushi_id:
+          type: integer
+          format: int32
+        carrito_sushi_id:
+          type: integer
+          format: int32
+tags:
+  - name: sushi
+    description: API endpoints related to sushi
+  - name: carrito
+    description: API endpoints related to shoping cart
