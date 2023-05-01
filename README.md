@@ -1,4 +1,4 @@
-# minireto2
+# Minireto2
 Mini-reto 2: Sushi's Sushi
 
 ## Descripción

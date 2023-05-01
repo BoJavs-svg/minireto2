@@ -13,12 +13,6 @@ function Table() {
             .catch(error => {
             console.log(error);});
         };
-    // app.delete('/sushi/:sushi_id', (req, res) => {
-    //     con.query("DELETE FROM SUSHI WHERE sushi_id = ?", [req.params.sushi_id], (err, rows) => {
-    //         if (err) throw err;
-    //         res.send(rows);
-    //     });
-    // });
     const handleDelete = (event) => {
         event.preventDefault();
         axios.delete('/sushi/' + event.target.getAttribute("sushi_id"))
@@ -30,25 +24,6 @@ function Table() {
                 return (
                     <div>
                     <h1>{dato.nombre}</h1>
-                    <div className="container">
-                        <div className="column">
-                            
-                        {/* <ul> */}
-                            {/* <li>Arroz</li>
-                            <li>Alga Nori </li>
-                            <li>Kombu </li>
-                            <li>Salmon </li> */}
-                        {/* </ul> */}
-                        </div>
-                        <div className="column">
-                        {/* <ul> */}
-                            {/* <li>Atun </li>
-                            <li>Aguacate </li>
-                            <li>Pepino </li>
-                            <li>Wasabi </li> */}
-                        {/* </ul> */}
-                        </div>
-                    </div>
                     <div style={{display: "flex",justifyContent: "center"}}>
                       <button className= "botonEstilo1" type="submit" onClick={handleSubmit} sushi_id={dato.sushi_id}>Agregar</button>
                       <button className= "botonEstilo1" type="submit" onClick={handleDelete} sushi_id={dato.sushi_id}>Eliminar</button>
