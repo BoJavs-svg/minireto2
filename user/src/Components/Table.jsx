@@ -49,11 +49,9 @@ function Table() {
                         {/* </ul> */}
                         </div>
                     </div>
-                    <div style={{display: "flex",justifyContent: "space-around"}}>
-                      <button type="submit" onClick={handleSubmit} sushi_id={dato.sushi_id}>Agregar</button>
-                      <button type="submit" onClick={handleDelete} sushi_id={dato.sushi_id}>
-                        Eliminar
-                      </button>
+                    <div style={{display: "flex",justifyContent: "center"}}>
+                      <button className= "botonEstilo1" type="submit" onClick={handleSubmit} sushi_id={dato.sushi_id}>Agregar</button>
+                      <button className= "botonEstilo1" type="submit" onClick={handleDelete} sushi_id={dato.sushi_id}>Eliminar</button>
                     </div>
                     </div>
                 );

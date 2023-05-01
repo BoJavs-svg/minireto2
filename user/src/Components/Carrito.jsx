@@ -27,7 +27,7 @@ function Carrito() {
                 return (
                     <div>
                         <h3>{dato.nombre}</h3>
-                        <button onClick={() => {deleteCarrito(dato.carrito_sushi_id)}}>Eliminar</button>
+                        <button className="botonEstilo2" onClick={() => {deleteCarrito(dato.carrito_sushi_id)}}>Eliminar</button>
                     </div>
                 );
                 }

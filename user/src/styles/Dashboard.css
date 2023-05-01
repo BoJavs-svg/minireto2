@@ -113,6 +113,7 @@
   height: 100%;
   background-color: #FBE4DB;
   font-size: 1vw;
+  overflow: hidden;
 
 }
 .bottom {
@@ -127,10 +128,16 @@
     padding-right: 50px;
     color: #FBE4DB; 
 }
-.myButton {
-  color: rgb(255, 255, 255); font-size: 16px; line-height: 16px; padding: 6px; border-radius: 10px; font-family: Georgia, serif; font-weight: normal; text-decoration: none; font-style: normal; font-variant: normal; text-transform: none; background-image: linear-gradient(to right, rgb(28, 110, 164) 0%, rgb(35, 136, 203) 50%, rgb(20, 78, 117) 100%); box-shadow: rgb(0, 0, 0) 5px 5px 15px 5px; border: 2px solid rgb(28, 110, 164); display: inline-block;}
+.botonEstilo1 {
+  color: rgb(0, 0, 0); font-size: 20px; line-height: 20px; padding: 7px; border-radius: 14px; font-family: Georgia, serif; font-weight: normal; text-decoration: none; font-style: normal; font-variant: normal; text-transform: none; background-image: radial-gradient(at center center, rgb(251, 228, 219) 0%, rgb(174, 151, 136) 99%, rgb(96, 74, 52) 100%); box-shadow: rgba(0, 0, 0, 0) 9px 5px 15px 5px; border: 2px solid transparent; display: inline-block;}
   .myButton:hover {
-  background: #1C6EA4; }
+  background: #FBE4DB; }
   .myButton:active {
-  background: #144E75; 
+  background: #604A34; 
 }
+.botonEstilo2 {
+  color: rgb(255, 255, 255); font-size: 20px; line-height: 20px; padding: 7px; border-radius: 14px; font-family: Georgia, serif; font-weight: normal; text-decoration: none; font-style: normal; font-variant: normal; text-transform: none; background-image: linear-gradient(to right, rgb(96, 74, 52) 0%, rgb(96, 74, 52) 99%, rgb(96, 74, 52) 100%); box-shadow: rgba(0, 0, 0, 0) 9px 5px 15px 5px; border: 2px solid transparent; display: inline-block;}
+  .myButton:hover {
+  background: #FBE4DB; }
+  .myButton:active {
+  background: #FBE4DB; }
